@@ -1,0 +1,102 @@
+--> delimiter $$
+create procedure p2(in a integer)
+begin
+if a%2=0 then
+select 'Even no';
+else
+select 'Odd no';
+end if;
+end $$
+delimiter ;
+
+
+-->set @n=21;
+call p1(@n);
+
+
+-->
+delimiter $$
+create procedure p3(in empno int)
+begin
+declare cnt int;
+select count(*) into cnt from empp where empp_id=empno;
+select cnt;
+end $$
+delimiter ;
+
+
+-->
+delimiter $$
+create procedure p4(in dname varchar(20),out cnt integer)
+begin
+select count(*) into cnt from emp where deptid=(select deptid from dept where deptname=dname);
+end $$
+delimiter ;
+
+
+-->
+delimiter $$
+create procedure tsal(inout dpt int)
+begin
+select sum(sal) into dpt from emp where deptid=dpt;
+end $$
+delimiter ;
+
+
+-->
+delimiter $$
+create function f1(eid int) returns varchar(20)
+begin
+declare nm varchar(20);
+select empname into nm from emp where empid=eid;
+return nm;
+end $$
+delimiter ;
+
+set @name=f1(110);
+select @name;
+
+
+-->
+delimiter $$
+create function f2(eid int) returns varchar(20)
+begin
+declare nm varchar(20);
+select deptname into nm from dept where deptid=(select deptid from emp where empid=eid);
+return nm;
+end $$
+delimiter ;
+
+set @depnm=f2(110);
+select @depnm;
+
+
+-->
+delimiter $$
+create procedure p5(in dname varchar(20),out cnt integer,out ename varchar(20))
+begin
+select count(*) into cnt from emp where deptid=(select deptid from dept where deptname=dname);
+select empname into ename from emp where empid=110;
+end $$
+delimiter ;
+
+set @dnm="Developer"
+set @abc=111
+select @abc;
+select @dnm;
+
+
+TRIGGERS:--->
+delimiter $$
+create trigger saltgr
+after delete
+on empp for each row
+begin
+insert into emp4 values(old.empp_id,old.empp_name,old.empp_city,empp_phone,empp_sal);
+end $$
+delimiter ;
+
+
+
+
+
