@@ -1,0 +1,13 @@
+.list-group-item{
+    background-color: transparent;
+    border-top: 1px solid #ddd;
+    color: white;
+}
+.card{
+    
+    background-color: transparent;
+}
+.card-img-top{
+    height: 80%;
+    object-fit: cover;
+}
