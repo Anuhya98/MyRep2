@@ -35,3 +35,29 @@ Microservices introduction
 03-03-2020
 Day 53
 Basics of Eureka,Ribbon and Feign from Netflix
+
+04-03-2020
+Day 54
+Integration testing microservice and Mockito Testing
+
+05-03-2020
+Day 55
+Zuul API Gateway
+
+06-03-2020
+Day 56
+Docker
+
+07-03-2020
+Day 57
+Docker and project work
+
+09-03-2020
+Day 58
+Spring security in Zuul
+
+10-3-2020
+Day 59
+Zenkins
+
+
